@@ -12,9 +12,9 @@ export function TokenLaunchpad() {
         const mintKeypair = Keypair.generate();
         const metadata = {
             mint: mintKeypair.publicKey,
-            name: 'KIRA',
-            symbol: 'KIR    ',
-            uri: 'https://cdn.100xdevs.com/metadata.json',
+            name: 'MAD LADS',
+            symbol: 'MAD LADS',
+            uri: 'https://server-y47x.onrender.com/metadata.json',
             additionalMetadata: [],
         };
 
