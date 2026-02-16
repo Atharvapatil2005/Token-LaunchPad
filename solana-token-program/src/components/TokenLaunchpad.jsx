@@ -46,7 +46,7 @@ export function TokenLaunchpad() {
         );
             
         transaction.feePayer = wallet.publicKey;
-        transaction.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
+        transaction.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;//the transaction also includes hash of the latest block and if the block is too old then solana rejects the transaction 
         transaction.partialSign(mintKeypair);
 
         await wallet.sendTransaction(transaction, connection);
@@ -74,7 +74,7 @@ export function TokenLaunchpad() {
         await wallet.sendTransaction(transaction2, connection);
 
         const transaction3 = new Transaction().add(
-            createMintToInstruction(mintKeypair.publicKey, associatedToken, wallet.publicKey, 1000000000, [], TOKEN_2022_PROGRAM_ID)
+            createMintToInstruction(mintKeypair.publicKey, associatedToken, wallet.publicKey, 1000000000, [], TOKEN_2022_PROGRAM_ID)    //minted 1 token 10^9
         );
 
         await wallet.sendTransaction(transaction3, connection);
